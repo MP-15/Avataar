@@ -1,0 +1,32 @@
+import React, { useState, useEffect } from 'react';
+import Carousel from './Carousel';
+import ProductList from './ProductList';
+
+function App() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    // Fetch product data from your API or database
+    // For simplicity, we'll use a static array here
+    const mockData = [
+      { id: 1, name: 'Product 1', imageUrl: 'url-to-image-1.jpg' },
+      { id: 2, name: 'Product 2', imageUrl: 'url-to-image-2.jpg' },
+      // Add more products as needed
+    ];
+
+    setProducts(mockData);
+  }, []);
+
+  return (
+    <div>
+      <h1>E-commerce Website</h1>
+      <Carousel>
+        {products.map((product) => (
+          <ProductList key={product.id} product={product} />
+        ))}
+      </Carousel>
+    </div>
+  );
+}
+
+export default App;
