@@ -1,1 +1,2 @@
 # Avataar
+npm start
